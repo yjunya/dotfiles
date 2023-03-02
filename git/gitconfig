@@ -1,0 +1,5 @@
+[include]
+    # ユーザー情報
+    path = "~/.config/git/gitconfig.user"
+    # gitconfig本体
+    path = "~/.config/git/gitconfig.general"
