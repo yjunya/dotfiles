@@ -135,6 +135,10 @@ nnoremap K  {
 nnoremap J  }
 vnoremap J  }
 vnoremap K  {
+nnoremap {  K
+nnoremap }  J
+vnoremap }  J
+vnoremap {  K
 
 " 行末
 nnoremap H  ^
@@ -166,7 +170,7 @@ if exists('g:vscode')
   set buftype=
   " ファイル保存
   nmap <leader>w  <cmd>call VSCodeNotify('workbench.action.files.save')<cr>
-  nmap <leader>q  <cmd>call VSCodeNotify('workbench.action.closeWindow')<cr>
+  nmap <leader>q  <cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<cr>
   " タブ
   nnoremap <silent>tt  <Nop>
   nnoremap <C-h>  <Nop>
