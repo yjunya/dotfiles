@@ -4,6 +4,7 @@ alias ls="exa --all --icons"
 alias ll="exa -ahl --icons --git"
 alias tree="exa --tree --icons --git-ignore"
 alias rm="trash"
+alias mkcd='(){mkdir $1;cd $1}'
 
 # vim
 alias v="nvim"
