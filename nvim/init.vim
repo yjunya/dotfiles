@@ -2,6 +2,9 @@
 set encoding=utf-8
 scriptencoding utf-8
 
+let mapleader = "\<Space>"
+let maplocalleader = "\<Space>"
+
 "-----------------------------------------------------------
 " vim-plug
 "-----------------------------------------------------------
@@ -25,8 +28,25 @@ Plug 'cocopon/iceberg.vim'
 Plug 'tomtom/tcomment_vim'
 " 自動で括弧
 Plug 'cohama/lexima.vim'
+" fiiler
+Plug 'lambdalisue/fern.vim'
 call plug#end()
 "--vim-plug-------------------------------------------------
+
+"-----------------------------------------------------------
+" fern
+"-----------------------------------------------------------
+function! s:init_fern() abort
+  nnoremap <buffer> s <Nop>
+  nnoremap q :<C-u>q<CR>
+endfunction
+augroup fern-custom
+  autocmd! *
+  autocmd FileType fern call s:init_fern()
+augroup END
+let g:fern#default_hidden=1
+nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
+nnoremap <silent> <leader>e :<C-u>Fern . -reveal=%<CR>
 
 
 "-----------------------------------------------------------
@@ -112,11 +132,16 @@ set hlsearch
 set clipboard=unnamed
 "-一般設定--------------------------------------------------
 
+" 句読点fix
+command! FixKutouten call s:FixKutouten()
+function! s:FixKutouten()
+  %s/、/，/g
+  %s/。/．/g
+endfunction
+
 "-----------------------------------------------------------
 " key binding
 "-----------------------------------------------------------
-let mapleader = "\<Space>"
-let maplocalleader = "\<Space>"
 
 " ESCキー2度押しでハイライトの切り替え
 nnoremap <silent><Esc><Esc> :<C-u>set nohlsearch!<CR>
@@ -146,10 +171,20 @@ nnoremap L  $
 vnoremap H  ^
 vnoremap L  $
 
-nnoremap ; :
-nnoremap : ;
-vnoremap ; :
-vnoremap : ;
+" nnoremap ; :
+" nnoremap : ;
+" vnoremap ; :
+" vnoremap : ;
+
+" 画面分割
+nnoremap s <Nop>
+nnoremap S <Nop>
+nnoremap ss :<C-u>sp<CR>
+nnoremap sv :<C-u>vs<CR>
+nnoremap sj <C-w>j
+nnoremap sk <C-w>k
+nnoremap sl <C-w>l
+nnoremap sh <C-w>h
 
 " 危険なキー
 nnoremap ZZ <Nop>
@@ -175,8 +210,8 @@ if exists('g:vscode')
   nnoremap <silent>tt  <Nop>
   nnoremap <C-h>  <Nop>
   nnoremap <C-l>  <Nop>
-  nnoremap th  <Nop>
-  nnoremap tl  <Nop>
+  nnoremap th  <cmd>call VSCodeNotify('workbench.action.previousEditor')<cr>
+  nnoremap tl  <cmd>call VSCodeNotify('workbench.action.nextEditor')<cr>
 else
   " ordinary Neovim
   " ファイル保存
