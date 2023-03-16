@@ -21,19 +21,22 @@ apply = ["source"]
 [templates]
 defer = "{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}"
 
-[plugins.zsh-syntax-highlighting]
-github = "zsh-users/zsh-syntax-highlighting"
-
-[plugins.zsh-autosuggestions]
-github = "zsh-users/zsh-autosuggestions"
-use = ["{{ name }}.zsh"]
+# https://docs.brew.sh/Shell-Completion
+[plugins.brew-completions]
+inline = "FPATH=\"$(brew --prefix)/share/zsh/site-functions:${FPATH}\""
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+apply = ["source"]
 [plugins.compinit]
 inline = """
 	autoload -Uz compinit &&
 	zsh-defer compinit
 	"""
-[plugins.zsh-completions]
-github = "zsh-users/zsh-completions"
+[plugins.zsh-syntax-highlighting]
+github = "zsh-users/zsh-syntax-highlighting"
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+use = ["{{ name }}.zsh"]
 [plugins.menu-select]
 inline = """
 	zstyle ':completion:*' menu select &&
