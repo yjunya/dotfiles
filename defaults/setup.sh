@@ -50,6 +50,9 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults -currentHost write com.apple.controlcenter Bluetooth -int 18
 defaults write com.apple.controlcenter "NSStatusItem Visible Bluetooth" -bool 1
 
+# すべてのアプリケーションで長押しが反応するように変更
+defaults write -g ApplePressAndHoldEnabled -bool false
+
 
 ###############################################################################
 # Finder                                                                      #
@@ -122,13 +125,6 @@ defaults write com.apple.TextEdit RichText -int 0
 # TextEditでファイルをUTF-8で開く/保存
 defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
-
-###############################################################################
-# vscode                                                                      #
-###############################################################################
-
-# VSCodeでvimの移動キー長押しが反応するように変更
-defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 
 ###############################################################################

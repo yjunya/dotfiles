@@ -13,7 +13,7 @@ alias vim="nvim"
 
 # local
 alias gp="pwd | pbcopy"
-alias pp="cd (pbpaste)"
+alias pp="cd $(pbpaste)"
 alias c="clear"
 alias bk="cd .."
 alias main="cd ~/main"
