@@ -193,16 +193,15 @@ nnoremap ZQ <Nop>
 " vを二回で行末まで選択
 vnoremap v $h
 
-" 置換
-nnoremap gs  :<C-u>%s///g<Left><Left><Left>
-vnoremap gs  :s///g<Left><Left><Left>
-
 " エラー一覧
 nnoremap <leader>? :lopen<CR>
 
 if exists('g:vscode')
   " VSCode extension
   set buftype=
+  " 置換
+  nnoremap gs  :<C-u>%s///g
+  vnoremap gs  :s///g
   " ファイル保存
   nmap <leader>w  <cmd>call VSCodeNotify('workbench.action.files.save')<cr>
   nmap <leader>q  <cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<cr>
@@ -214,6 +213,9 @@ if exists('g:vscode')
   nnoremap tl  <cmd>call VSCodeNotify('workbench.action.nextEditor')<cr>
 else
   " ordinary Neovim
+  " 置換
+  nnoremap gs  :<C-u>%s///g<Left><Left><Left>
+  vnoremap gs  :s///g<Left><Left><Left>
   " ファイル保存
   nnoremap <leader>w :<C-u>w<CR>
   nnoremap <leader>q :<C-u>q<CR>
