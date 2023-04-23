@@ -28,25 +28,46 @@ Plug 'cocopon/iceberg.vim'
 Plug 'tomtom/tcomment_vim'
 " 自動で括弧
 Plug 'cohama/lexima.vim'
-" fiiler
-Plug 'lambdalisue/fern.vim'
+" filer
+Plug 'Shougo/unite.vim'
+Plug 'Shougo/vimfiler'
 call plug#end()
 "--vim-plug-------------------------------------------------
 
-"-----------------------------------------------------------
-" fern
-"-----------------------------------------------------------
-function! s:init_fern() abort
-  nnoremap <buffer> s <Nop>
-  nnoremap q :<C-u>q<CR>
+
+" "-----------------------------------------------------------
+" " Unite
+" "-----------------------------------------------------------
+nnoremap <leader>b :<C-u>Unite buffer -buffer-name=file<CR>
+"uniteを開いている間のキーマッピング
+autocmd FileType unite call s:unite_my_settings()
+function! s:unite_my_settings()
+	"ESCでuniteを終了
+  nmap <buffer> l <CR>
 endfunction
-augroup fern-custom
-  autocmd! *
-  autocmd FileType fern call s:init_fern()
+
+
+" "-----------------------------------------------------------
+" " VimFiler
+" "-----------------------------------------------------------
+" "vimデフォルトのエクスプローラをvimfilerで置き換える
+let g:vimfiler_as_default_explorer = 1
+"セーフモードを無効にした状態で起動する
+let g:vimfiler_safe_mode_by_default = 0
+
+
+"デフォルトのキーマッピングを変更
+augroup vimrc
+  autocmd FileType vimfiler call s:vimfiler_my_settings()
 augroup END
-let g:fern#default_hidden=1
-nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
-nnoremap <silent> <leader>e :<C-u>Fern . -reveal=%<CR>
+function! s:vimfiler_my_settings()
+  nmap <buffer> q <Plug>(vimfiler_exit)
+endfunction
+
+"現在開いているバッファのディレクトリを開く
+nnoremap <silent> <leader>e :<C-u>VimFilerBufferDir -quit<CR>
+"現在開いているバッファをIDE風に開く
+nnoremap <silent> <leader>tr :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit<CR>
 
 
 "-----------------------------------------------------------
