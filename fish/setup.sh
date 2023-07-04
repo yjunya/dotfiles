@@ -2,7 +2,8 @@
 SCRIPT_DIR=$(dirname $0)
 cd $SCRIPT_DIR
 
-if [ $(which fish) != "/opt/homebrew/bin/fish" ]; then
+if [[ $(which fish) != '/opt/homebrew/bin/fish' ]]; then
+  brew install fish
   sudo sh -c "echo '$HOMEBREW_PREFIX/bin/fish' >> /etc/shells"
   chsh -s $HOMEBREW_PREFIX/bin/fish
 fi

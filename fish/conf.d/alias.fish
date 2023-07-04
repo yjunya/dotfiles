@@ -1,6 +1,6 @@
 # general
 alias sudo="sudo "
-alias ls="exa --all --icons"
+alias ls="exa --icons"
 alias ll="exa -ahl --icons --git"
 alias la="exa -ahl --icons --git"
 alias tree="exa --tree --icons --git-ignore"

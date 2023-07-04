@@ -3,3 +3,5 @@
     path = "~/.config/git/gitconfig.user"
     # gitconfig本体
     path = "~/.config/git/gitconfig.general"
+[includeIf "gitdir:~/main/works/"]
+    path = "~/.config/git/gitconfig.user.works"
