@@ -3,27 +3,35 @@ ignorecase = false
 editor = nvim
 
 [alias]
+d = "diff"
 p = "push"
 push-f = "push --force-with-lease"
 pu = "push -u origin HEAD"
 f = "fetch"
 m = "merge"
+cm = "commit"
 cmm = "commit -m"
 cme = "commit --allow-empty -m"
+s = "status"
+st = "status"
 sw = "switch"
 swc = "switch -c"
-st = "status"
 difff = "diff --word-diff"
 co = "checkout"
 tree = "log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\""
 graph = "log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\""
 g = "log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\""
 ll = "log --oneline -n 10"
-current-branch-name = "! git branch | grep -e '^\\* ' | sed -e 's/^\\* //g'"
+lll = "log --oneline"
+current-branch-name = "branch --show-current"
 pull-f = "!git fetch && git reset --hard origin/$(git current-branch-name)"
+fix-commit = "!f () { git rebase -i HEAD~$1;};f"
 
 [pull]
 rebase = false
 
 [init]
 defaultBranch = "main"
+
+[commit]
+    template = ~/.config/git/commit_template
