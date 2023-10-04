@@ -24,8 +24,11 @@ alias bk="cd .."
 alias main="cd ~/main"
 alias dot="cd ~/main/dotfiles"
 alias capture="cd ~/ScreenCapture/"
+alias open-capture="open ~/ScreenCapture/"
 alias desk="cd ~/Desktop"
+alias open-desk="open ~/Desktop/"
 alias down="cd ~/Downloads"
+alias open-down="open ~/Downloads/"
 
 # dena
 alias pococha="cd ~/main/works/01_pococha/01_code/"
