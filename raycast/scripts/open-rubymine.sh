@@ -2,7 +2,7 @@
 
 # Required parameters:
 # @raycast.schemaVersion 1
-# @raycast.title open rubymine in server
+# @raycast.title open rubymine
 # @raycast.mode compact
 
 # Optional parameters:
@@ -10,9 +10,4 @@
 
 source .env
 
-cd $WORKSPACE_PATH
-
-eval "$(rtx hook-env -s bash)"
-
-open /Applications/RubyMine.app
-
+sh ./open-app-in-dir.sh /Applications/RubyMine.app $WORKSPACE_PATH &
