@@ -25,7 +25,8 @@ call plug#begin('~/.vim/plugged')
 " カラースキーム
 Plug 'cocopon/iceberg.vim'
 " コメントON/OFFを手軽に実行 gccもしくは選択からgc
-Plug 'tomtom/tcomment_vim'
+" Plug 'tomtom/tcomment_vim'
+Plug 'tyru/caw.vim'
 " 自動で括弧
 Plug 'cohama/lexima.vim'
 " filer
