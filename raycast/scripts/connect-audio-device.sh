@@ -13,9 +13,9 @@ source .env
 blueutil --connect $AUDIO_DEVICE_UID
 
 count=0
-while [ $count -lt 1j ]; do
+while [ $count -lt 10 ]; do
   count=$(( $count + 1 ))
-  if SwitchAudioSource -c -f cli | grep -q "$AUDIO_DEVICE_UID"; then
+  if blueutil --connected | grep -i -q "$AUDIO_DEVICE_UID"; then
     SwitchAudioSource -u $AUDIO_DEVICE_UID
     SwitchAudioSource -t input -u $AUDIO_DEVICE_UID
     break
