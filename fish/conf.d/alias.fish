@@ -6,11 +6,17 @@ alias la="exa -ahl --icons --git"
 alias tree="exa --tree --icons --git-ignore"
 alias rm="trash"
 alias ip="ipconfig getifaddr en0"
-alias mk="task"
+alias tk="task"
 
 function mkcd
 	mkdir $argv
 	cd $argv
+end
+
+function loop
+  while true
+    eval $argv
+  end
 end
 
 
