@@ -12,4 +12,4 @@ source .env
 
 cd $REPOSITORY_PATH
 
-eval "$(gh pr view --web)"
+eval "$(gh pr view --web 2>/dev/null || gh pr create --web)"
