@@ -1,37 +1,47 @@
 [core]
-ignorecase = false
-editor = nvim
+    ignorecase = false
+    editor = nvim
 
 [alias]
-d = "diff"
-p = "push"
-push-f = "push --force-with-lease"
-pu = "push -u origin HEAD"
-f = "fetch"
-m = "merge"
-cm = "commit"
-cmm = "commit -m"
-cme = "commit --allow-empty -m"
-s = "status"
-st = "status"
-sw = "switch"
-swc = "switch -c"
-difff = "diff --word-diff"
-co = "checkout"
-tree = "log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\""
-graph = "log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\""
-g = "log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\""
-ll = "log --oneline -n 10"
-lll = "log --oneline"
-current-branch-name = "branch --show-current"
-pull-f = "!git fetch && git reset --hard origin/$(git current-branch-name)"
-fix-commit = "!f () { git rebase -i HEAD~$1;};f"
+    d = "diff"
+    p = "push"
+    push-f = "push --force-with-lease"
+    pu = "push -u origin HEAD"
+    f = "fetch"
+    m = "merge"
+    cm = "commit"
+    cmm = "commit -m"
+    cme = "commit --allow-empty -m"
+    s = "status"
+    st = "status"
+    sw = "switch"
+    swc = "switch -c"
+    difff = "diff --word-diff"
+    co = "checkout"
+    adda = "add -A"
+    tree = "log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\""
+    graph = "log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\""
+    g = "log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\""
+    ll = "log --oneline -n 10"
+    lll = "log --oneline"
+    lp = "log -p --ext-diff"
+    current-branch-name = "branch --show-current"
+    pull-f = "!git fetch && git reset --hard origin/$(git current-branch-name)"
+    fix-commit = "!f () { git rebase -i HEAD~$1;};f"
+    sta = "stash --include-untracked"
+    stas = "!f () { git stash save $1 --include-untracked;};f"
+    staa = "stash apply"
+    stad = "stash drop"
+    stap = "stash pop"
 
 [pull]
-rebase = false
+    rebase = false
 
 [init]
-defaultBranch = "main"
+    defaultBranch = "main"
 
 [commit]
     template = ~/.config/git/commit_template
+
+[diff]
+    external = difft
