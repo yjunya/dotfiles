@@ -20,6 +20,8 @@ function loop
 end
 
 
+alias parselog="pbpaste | sed 's/\\t/\n    /g' | sed 's/\\n/\n/g'"
+
 # vim
 alias v="nvim"
 alias vi="nvim"
