@@ -2,7 +2,7 @@
 
 cd $2
 
-eval "$(rtx hook-env -s bash)"
+eval "$(mise hook-env -s bash)"
 
 open $1
 
