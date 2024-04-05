@@ -4,6 +4,7 @@
 
 [alias]
     d = "diff"
+    du = "!git ls-files --others --exclude-standard | xargs bat"
     p = "push"
     push-f = "push --force-with-lease"
     pu = "push -u origin HEAD"
@@ -33,6 +34,8 @@
     staa = "stash apply"
     stad = "stash drop"
     stap = "stash pop"
+    pr = "!f(){ gh pr view --web; };f"
+    browse = "!f(){ gh browse; };f"
 
 [pull]
     rebase = false
@@ -41,7 +44,7 @@
     defaultBranch = "main"
 
 [commit]
-    template = ~/.config/git/commit_template
+    template = ~/.config/git/commit_template.md
 
 [diff]
     external = difft

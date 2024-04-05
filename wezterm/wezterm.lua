@@ -14,8 +14,8 @@ local config = {
 
 
   keys = {
-    { key = "LeftArrow", mods = "CMD", action = act.ActivateTabRelative(1) },
-    { key = "RightArrow", mods = "CMD", action = act.ActivateTabRelative(-1) },
+    { key = "LeftArrow", mods = "CMD", action = act.ActivateTabRelative(-1) },
+    { key = "RightArrow", mods = "CMD", action = act.ActivateTabRelative(1) },
     { key = "w", mods = "CMD", action = act.CloseCurrentPane{ confirm = true } },
     { key = "W", mods = "CMD", action = act.CloseCurrentPane{ confirm = true } },
     { key = "T", mods = "CMD", action = act.SpawnTab "CurrentPaneDomain" },
@@ -25,10 +25,10 @@ local config = {
     { key = "L", mods = "CMD", action = act.ActivatePaneDirection("Right") },
     { key = "K", mods = "CMD", action = act.ActivatePaneDirection("Up") },
     { key = "J", mods = "CMD", action = act.ActivatePaneDirection("Down") },
-    { key = "h", mods = "CMD|CTRL", action = act.AdjustPaneSize{"Left", 10} },
-    { key = "l", mods = "CMD|CTRL", action = act.AdjustPaneSize{"Right", 10} },
-    { key = "k", mods = "CMD|CTRL", action = act.AdjustPaneSize{"Up", 5} },
-    { key = "j", mods = "CMD|CTRL", action = act.AdjustPaneSize{"Down", 5} },
+    { key = "h", mods = "CMD|CTRL", action = act.ActivatePaneDirection("Left") },
+    { key = "l", mods = "CMD|CTRL", action = act.ActivatePaneDirection("Right") },
+    { key = "k", mods = "CMD|CTRL", action = act.ActivatePaneDirection("Up") },
+    { key = "j", mods = "CMD|CTRL", action = act.ActivatePaneDirection("Down") },
   }
 }
 
