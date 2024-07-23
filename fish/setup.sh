@@ -12,4 +12,6 @@ mkdir -p ~/.config/fish
 ln -siv $(pwd)/config.fish ~/.config/fish
 mkdir -p ~/.config/fish/conf.d
 ln -siv $(pwd)/conf.d/* ~/.config/fish/conf.d
+mkdir -p ~/.config/fish/completions
+ln -siv $(pwd)/completions/* ~/.config/fish/completions
 

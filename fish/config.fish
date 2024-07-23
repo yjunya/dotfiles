@@ -4,6 +4,7 @@ if status is-interactive
   starship init fish | source
   mise activate fish | source
   mise hook-env -s fish | source
+  mise complete -s fish | source
 
   set -x GOPATH $HOME/go
   set -x PATH $PATH $GOPATH/bin
