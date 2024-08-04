@@ -10,6 +10,8 @@
     pu = "push -u origin HEAD"
     f = "fetch"
     m = "merge"
+    fm = "!f() { git fetch origin $1; git merge origin/$1; };f"
+    fmm = "!f() { git fetch origin master; git merge origin/master; };f"
     cm = "commit"
     cmm = "commit -m"
     cme = "commit --allow-empty -m"
@@ -36,6 +38,8 @@
     stap = "stash pop"
     pr = "!f(){ gh pr view --web; };f"
     browse = "!f(){ gh browse; };f"
+    clean-branch = "!for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -d $branch; done"
+    clean-branch-force = "!for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done"
 
 [pull]
     rebase = false
