@@ -227,6 +227,8 @@ if exists('g:vscode')
   " ファイル保存
   nmap <leader>w  <cmd>call VSCodeNotify('workbench.action.files.save')<cr>
   nmap <leader>q  <cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<cr>
+  " jjでエスケープ
+  inoremap <silent>jj <cmd>call VSCodeNotify('vscode-neovim.escape')<cr>
   " タブ
   nnoremap <silent>tt  <Nop>
   nnoremap <C-h>  <Nop>
