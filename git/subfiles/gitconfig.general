@@ -36,7 +36,7 @@
     staa = "stash apply"
     stad = "stash drop"
     stap = "stash pop"
-    pr = "!f(){ gh pr view --web; };f"
+    pr = "!f(){ gh pr view --web 2>/dev/null || gh pr create --web; };f"
     browse = "!f(){ gh browse; };f"
     clean-branch = "!for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -d $branch; done"
     clean-branch-force = "!for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done"
