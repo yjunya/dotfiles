@@ -1,6 +1,8 @@
 shell-integration = fish
 
-font-family = HackGen35 Console NF
+term = "xterm-256color"
+
+font-family = "HackGen35 Console NF"
 font-feature = "-calt"
 font-feature = "-dlig"
 font-feature = "-liga"
