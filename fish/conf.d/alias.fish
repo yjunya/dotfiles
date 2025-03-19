@@ -1,9 +1,9 @@
 # general
 alias sudo="sudo "
-alias ls="exa --icons"
-alias ll="exa -ahl --icons --git"
-alias la="exa -ahl --icons --git"
-alias tree="exa --tree --icons --git-ignore"
+alias ls="eza --icons"
+alias ll="eza -ahl --icons --git"
+alias la="eza -ahl --icons --git"
+alias tree="eza --tree --icons --git-ignore"
 alias rm="trash"
 alias ip="ipconfig getifaddr en0"
 alias tk="task"
@@ -41,3 +41,4 @@ alias open-desk="open ~/Desktop/"
 alias down="cd ~/Downloads"
 alias open-down="open ~/Downloads/"
 alias s="set -x"
+alias touch-taskfile='echo -e "version: \'3\'\\ntasks:\\n  run:\\n    cmds:\\n      - echo \\"Hello, World!\\"" > Taskfile.yml'

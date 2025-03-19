@@ -1,0 +1,20 @@
+shell-integration = fish
+
+term = "xterm-256color"
+
+font-family = "HackGen35 Console NF"
+font-feature = "-calt"
+font-feature = "-dlig"
+font-feature = "-liga"
+
+resize-overlay = never
+
+window-inherit-working-directory = true
+
+macos-titlebar-style = tabs
+
+maximize = true
+
+background-opacity = 0.9
+background-blur = 10
+
