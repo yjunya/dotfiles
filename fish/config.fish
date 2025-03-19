@@ -8,6 +8,5 @@ if status is-interactive
   mise hook-env -s fish | source
   mise complete -s fish | source
 
-  set -x GOPATH $HOME/go
-  set -x PATH $PATH $GOPATH/bin
+  set -x PATH $PATH $HOME/go/bin
 end
