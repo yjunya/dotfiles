@@ -180,8 +180,8 @@ if vim.g.vscode then
   vim.opt.buftype = ""
   vim.keymap.set("n", "gs", ":<C-u>%s///g", { noremap = true })
   vim.keymap.set("v", "gs", ":s///g", { noremap = true })
-  -- vim.keymap.set("n", "<leader>w", "<cmd>call VSCodeNotify('workbench.action.files.save')<cr>")
-  -- vim.keymap.set("n", "<leader>q", "<cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<cr>")
+  vim.keymap.set("n", "<leader>w", "<cmd>call VSCodeNotify('workbench.action.files.save')<cr>")
+  vim.keymap.set("n", "<leader>q", "<cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<cr>")
   vim.keymap.set("i", "jj", "<cmd>call VSCodeNotify('vscode-neovim.escape')<cr>", { silent = true })
   vim.keymap.set("n", "<C-h>", "<Nop>", { silent = true })
   vim.keymap.set("n", "<C-l>", "<Nop>", { silent = true })
@@ -191,6 +191,8 @@ if vim.g.vscode then
   vim.keymap.set("n", "sv", "<cmd>call VSCodeNotify('workbench.action.splitEditor')<cr>")
   vim.keymap.set("n", "sh", "<cmd>call VSCodeNotify('workbench.action.focusLeftGroup')<cr>")
   vim.keymap.set("n", "sl", "<cmd>call VSCodeNotify('workbench.action.focusRightGroup')<cr>")
+  vim.keymap.set("n", "<leader>d", "<cmd>call VSCodeNotify('editor.action.revealDefinition')<cr>")
+  vim.keymap.set("n", "<leader>i", "<cmd>call VSCodeNotify('editor.action.goToImplementation')<cr>")
   vim.keymap.set("n", "<leader>e", "<cmd>call VSCodeNotify('workbench.action.quickOpen')<cr>")
 else
   -- 通常の Neovim 用設定
