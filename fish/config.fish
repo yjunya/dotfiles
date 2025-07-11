@@ -10,3 +10,4 @@ if status is-interactive
 
   set -x PATH $PATH $HOME/go/bin
 end
+

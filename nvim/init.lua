@@ -183,17 +183,23 @@ if vim.g.vscode then
   vim.keymap.set("n", "<leader>w", "<cmd>call VSCodeNotify('workbench.action.files.save')<cr>")
   vim.keymap.set("n", "<leader>q", "<cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<cr>")
   vim.keymap.set("i", "jj", "<cmd>call VSCodeNotify('vscode-neovim.escape')<cr>", { silent = true })
-  vim.keymap.set("n", "<C-h>", "<Nop>", { silent = true })
-  vim.keymap.set("n", "<C-l>", "<Nop>", { silent = true })
   vim.keymap.set("n", "tt", "<cmd>call VSCodeNotify('workbench.action.quickOpen')<cr>")
   vim.keymap.set("n", "th", "<cmd>call VSCodeNotify('workbench.action.previousEditor')<cr>")
   vim.keymap.set("n", "tl", "<cmd>call VSCodeNotify('workbench.action.nextEditor')<cr>")
   vim.keymap.set("n", "sv", "<cmd>call VSCodeNotify('workbench.action.splitEditor')<cr>")
   vim.keymap.set("n", "sh", "<cmd>call VSCodeNotify('workbench.action.focusLeftGroup')<cr>")
   vim.keymap.set("n", "sl", "<cmd>call VSCodeNotify('workbench.action.focusRightGroup')<cr>")
+  vim.keymap.set("n", "gd", "<cmd>call VSCodeNotify('editor.action.revealDefinition')<cr>")
+  vim.keymap.set("n", "gi", "<cmd>call VSCodeNotify('editor.action.goToImplementation')<cr>")
   vim.keymap.set("n", "<leader>d", "<cmd>call VSCodeNotify('editor.action.revealDefinition')<cr>")
   vim.keymap.set("n", "<leader>i", "<cmd>call VSCodeNotify('editor.action.goToImplementation')<cr>")
   vim.keymap.set("n", "<leader>e", "<cmd>call VSCodeNotify('workbench.action.quickOpen')<cr>")
+  vim.keymap.set("n", "<C-h>", "<Nop>", { noremap = true, silent = true })
+  vim.keymap.set("n", "<C-l>", "<Nop>", { noremap = true, silent = true })
+
+  vim.opt.compatible = false
+  vim.cmd("syntax off")
+  vim.cmd("filetype off")
 else
   -- 通常の Neovim 用設定
   vim.keymap.set("n", "gs", ":<C-u>%s///g<Left><Left><Left>", { noremap = true })
@@ -203,9 +209,10 @@ else
   vim.keymap.set("n", "<leader>Q", ":<C-u>q!<CR>", { noremap = true })
   vim.keymap.set("i", "jj", "<ESC>", { noremap = true, silent = true })
   vim.keymap.set("n", "tt", ":<C-u>tabe<CR>", { noremap = true, silent = true })
-  vim.keymap.set("n", "<C-h>", "gT", { noremap = true })
-  vim.keymap.set("n", "<C-l>", "gt", { noremap = true })
   vim.keymap.set("n", "th", "gT", { noremap = true })
   vim.keymap.set("n", "tl", "gt", { noremap = true })
+  -- ジャンプ履歴移動
+  vim.keymap.set('n', '<C-h>', '<C-o>', { noremap = true, silent = true })
+  vim.keymap.set('n', '<C-l>', '<C-i>', { noremap = true, silent = true })
 end
 

@@ -38,9 +38,17 @@
     stap = "stash pop"
     pr = "!f(){ gh pr view --web 2>/dev/null || gh pr create --web; };f"
     browse = "!f(){ gh browse; };f"
+    br = "!f(){ gh browse; };f"
     clean-branch = "!for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -d $branch; done"
     clean-branch-force = "!for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done"
     pr-list = "!gh pr list --author "@me" --state merged --limit 1000  --json number,title,mergedAt --jq 'sort_by(.number) | .[] | [.number, .title, .mergedAt] | @tsv'"
+    revert-to-target = "!f(){ git revert -n $1..HEAD; git add -A; git commit -m \"Revert to $1\";};f"
+    tag-dates = "for-each-ref --format=\"%(refname:short) %(creatordate)\" --sort=-creatordate refs/tags"
+    sw-tag = "switch --detach"
+    branch-diff = "!f() { \
+        base=origin/${1:-main}; \
+        git diff $(git merge-base $base HEAD)..HEAD; \
+    }; f"
 
 [pull]
     rebase = false
